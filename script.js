@@ -6,6 +6,19 @@ $(document).ready(function() {
         let scheduleHour = parseInt($(this).attr('id').split('-')[1]);
         if(currentHour==scheduleHour){
             $(this).addClass('present')
+            $(this).removeClass('past')
+            $(this).removeClass('future')
+
+        }
+        if(currentHour > scheduleHour){
+            $(this).addClass('past')
+            $(this).removeClass('present')
+            $(this).removeClass('future')
+        }
+        if(currentHour < scheduleHour){
+            $(this).addClass('future')
+            $(this).removeClass('present')
+            $(this).removeClass('past')
         }
     });
 });
